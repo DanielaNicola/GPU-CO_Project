@@ -12,31 +12,24 @@ public final class PropertyReader {
     private static final String PROPERTIES_FILE = "src\\resources\\property\\config.properties";
     private static PropertyReader instance;
 
-    //Store the "main-window-width" parameter value from property
     public static final int MAIN_WINDOW_WIDTH = Integer.parseInt(getInstance().
             properties.getProperty("main-window-width"));
 
-    //Store the "main-window-height" parameter value from property
     public static final int MAIN_WINDOW_HEIGHT = Integer.parseInt(getInstance().
             properties.getProperty("main-window-height"));
 
-    //Store the "main-window-width-min" parameter value from property
     public static final int MAIN_WINDOW_WIDTH_MIN = Integer.parseInt(getInstance().
             properties.getProperty("main-window-width-min"));
 
-    //Store the "main-window-height-min" parameter value from property
     public static final int MAIN_WINDOW_HEIGHT_MIN = Integer.parseInt(getInstance().
             properties.getProperty("main-window-height-min"));
 
-    //Store the "graphic-window-width" parameter value from property
     public static final int GRAPHIC_WINDOW_WIDTH = Integer.parseInt(getInstance().
             properties.getProperty("graphic-window-width"));
 
-    //Store the "graphic-window-height" parameter value from property
     public static final int GRAPHIC_WINDOW_HEIGHT = Integer.parseInt(getInstance().
             properties.getProperty("graphic-window-height"));
 
-    //Location of the application icon
     public static final String ICON_PATH = getInstance().
             properties.getProperty("icon-path");
 
@@ -73,8 +66,6 @@ public final class PropertyReader {
     }
 
 
-    //Get PropertyReader instance
-    //return instance
     private static PropertyReader getInstance() {
         if (instance == null) {
             instance = new PropertyReader();

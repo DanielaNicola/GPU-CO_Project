@@ -9,11 +9,7 @@ import static benchmarktest.co.gui.MainWindow.jBasicTable;
 // Implementation of GPU test
 public final class MoveSqr extends javax.swing.JPanel implements java.awt.event.ActionListener {
     private int i = 0;
-
-    //Speed square relocation
     private int speedByYAxis = 10;
-
-    // Position of square by Y Axis
     private int yPosition = 10;
 
     private String color;
@@ -27,11 +23,9 @@ public final class MoveSqr extends javax.swing.JPanel implements java.awt.event.
         this.shape=shape;
     }
 
-    //Timer
     private javax.swing.Timer timer = new javax.swing.Timer(50, this);
 
     // Total time value
-
     private long timeout = System.currentTimeMillis();
 
     @Override
@@ -78,7 +72,6 @@ public final class MoveSqr extends javax.swing.JPanel implements java.awt.event.
                 break;
             default:
                 break;
-            // code block
         }
         switch (shape)
         {
@@ -99,7 +92,6 @@ public final class MoveSqr extends javax.swing.JPanel implements java.awt.event.
     }
 
 
-    //Move square 4 times
     public void moveUpDown() {
         this.setVisible(true);
         actionPerformed(null);

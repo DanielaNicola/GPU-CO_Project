@@ -7,30 +7,22 @@ import java.awt.*;
 
 
 
-//Class describes the main window UI
 public class MainWindow extends javax.swing.JFrame {
 
-    //Table container.
     public static javax.swing.JTable jBasicTable;
 
-    //Table content.
     public static double[][] content;
 
 
 
     public String selectedColor,selectedIterations,selectedShape;
 
-    // Main window panel
     private javax.swing.JPanel mainPanel;
 
-    // Start test button
     private javax.swing.JButton startButton;
 
-
-    //Scroll bar
     private javax.swing.JScrollPane jScrollPane1;
 
-    // Default constructor.
     public MainWindow() {
         super();
         setTitle("BenchMark Test");
@@ -61,12 +53,10 @@ public class MainWindow extends javax.swing.JFrame {
         String[] shapes= new String[] {"SQUARE","CIRCLE"};
         String[] numbers = new String[] {"1","2","3","4","5"};
 
-// create a combo box with the fixed array:
         JComboBox<String> comboColor = new JComboBox<String>(colors);
         JComboBox<String> comboShape = new JComboBox<String>(shapes);
         JComboBox<String> comboNumber = new JComboBox<String>(numbers);
         mainPanel.setBackground(Color.pink);
-        //jBasicTable.setBackground(Color.pink);
         jBasicTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
                         {"Anca's computer        NVIDIA GeForce 920M", "Test not run yet"},
@@ -107,7 +97,6 @@ public class MainWindow extends javax.swing.JFrame {
         startButton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                //startButtonMouseClicked(evt);
 
                 selectedColor=(String)comboColor.getSelectedItem();
                 selectedIterations=(String)comboNumber.getSelectedItem();

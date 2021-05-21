@@ -8,7 +8,6 @@ import java.awt.*;
 import static benchmarktest.co.gui.MainWindow.jBasicTable;
 
 
-//Class describes the graphic test window
 class GraphicTestWindow extends javax.swing.JFrame {
 
     String color,iterations,shape;
@@ -31,7 +30,7 @@ class GraphicTestWindow extends javax.swing.JFrame {
     private final MoveSqr moveSqrTest = new MoveSqr();
 
 
-    GraphicTestWindow(String color,String shape, String iterations) { //constructor
+    GraphicTestWindow(String color,String shape, String iterations) {
         super();
         this.color=color;
         this.iterations=iterations;
