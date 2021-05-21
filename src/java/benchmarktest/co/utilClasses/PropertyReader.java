@@ -6,25 +6,25 @@ import java.io.IOException;
 import java.util.Properties;
 
 
-  //PropertyReader is a  class for reading information from .property file
+//PropertyReader is a  class for reading information from .property file
 public final class PropertyReader {
-      //Property file location
-   private static final String PROPERTIES_FILE = "src\\resources\\property\\config.properties";
+    //Property file location
+    private static final String PROPERTIES_FILE = "src\\resources\\property\\config.properties";
     private static PropertyReader instance;
 
-      //Store the "main-window-width" parameter value from property
+    //Store the "main-window-width" parameter value from property
     public static final int MAIN_WINDOW_WIDTH = Integer.parseInt(getInstance().
-           properties.getProperty("main-window-width"));
+            properties.getProperty("main-window-width"));
 
-      //Store the "main-window-height" parameter value from property
+    //Store the "main-window-height" parameter value from property
     public static final int MAIN_WINDOW_HEIGHT = Integer.parseInt(getInstance().
             properties.getProperty("main-window-height"));
 
-      //Store the "main-window-width-min" parameter value from property
+    //Store the "main-window-width-min" parameter value from property
     public static final int MAIN_WINDOW_WIDTH_MIN = Integer.parseInt(getInstance().
-           properties.getProperty("main-window-width-min"));
+            properties.getProperty("main-window-width-min"));
 
-      //Store the "main-window-height-min" parameter value from property
+    //Store the "main-window-height-min" parameter value from property
     public static final int MAIN_WINDOW_HEIGHT_MIN = Integer.parseInt(getInstance().
             properties.getProperty("main-window-height-min"));
 
@@ -36,24 +36,24 @@ public final class PropertyReader {
     public static final int GRAPHIC_WINDOW_HEIGHT = Integer.parseInt(getInstance().
             properties.getProperty("graphic-window-height"));
 
-      //Location of the application icon
+    //Location of the application icon
     public static final String ICON_PATH = getInstance().
             properties.getProperty("icon-path");
 
-     // Store number of the array rows
+    // Store number of the array rows
     public static final int ARRAY_ROWS = Integer.parseInt(getInstance().
             properties.getProperty("array-rows"));
 
-      //Store number of array columns
+    //Store number of array columns
     public static final int ARRAY_COLUMNS = Integer.parseInt(getInstance().
             properties.getProperty("array-columns"));
 
     private Properties properties;
 
 
-     // load .properties file
+    // load .properties file
     private PropertyReader() {
-       properties = new Properties();
+        properties = new Properties();
         FileInputStream propertiesFile = null;
         try {
             propertiesFile = new FileInputStream(PROPERTIES_FILE);
@@ -73,8 +73,8 @@ public final class PropertyReader {
     }
 
 
-      //Get PropertyReader instance
-      //return instance
+    //Get PropertyReader instance
+    //return instance
     private static PropertyReader getInstance() {
         if (instance == null) {
             instance = new PropertyReader();

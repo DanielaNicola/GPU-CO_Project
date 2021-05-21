@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GPU:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GPU_jar</output-path>
+    <root id="archive" name="GPU.jar">
+      <element id="module-output" name="GPU" />
+    </root>
+  </artifact>
+</component>

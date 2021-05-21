@@ -2,29 +2,35 @@ package benchmarktest.co.gui;
 
 import benchmarktest.co.utilClasses.PropertyReader;
 
+import javax.swing.*;
 import java.awt.*;
 
 
-  //Class describes the main window UI
+
+//Class describes the main window UI
 public class MainWindow extends javax.swing.JFrame {
 
-      //Table container.
+    //Table container.
     public static javax.swing.JTable jBasicTable;
 
-      //Table content.
+    //Table content.
     public static double[][] content;
 
-     // Main window panel
+
+
+    public String selectedColor,selectedIterations,selectedShape;
+
+    // Main window panel
     private javax.swing.JPanel mainPanel;
 
-   // Start test button
+    // Start test button
     private javax.swing.JButton startButton;
 
 
-     //Scroll bar
+    //Scroll bar
     private javax.swing.JScrollPane jScrollPane1;
 
-     // Default constructor.
+    // Default constructor.
     public MainWindow() {
         super();
         setTitle("BenchMark Test");
@@ -39,23 +45,51 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
 
-      //Initialization of UI components
+    //Initialization of UI components
     private void initComponents() {
         content = new double[PropertyReader.ARRAY_ROWS][PropertyReader.ARRAY_COLUMNS];
         mainPanel = new javax.swing.JPanel(new GridBagLayout());
+
         mainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("BenchMark Test"));
         startButton = new javax.swing.JButton("Start Test");
 
         jBasicTable = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane(jBasicTable);
+
+
+        String[] colors= new String[] {"RED", "BLUE", "GREEN", "YELLOW", "PURPLE", "CYAN", "PINK", "BLACK"};
+        String[] shapes= new String[] {"SQUARE","CIRCLE"};
+        String[] numbers = new String[] {"1","2","3","4","5"};
+
+// create a combo box with the fixed array:
+        JComboBox<String> comboColor = new JComboBox<String>(colors);
+        JComboBox<String> comboShape = new JComboBox<String>(shapes);
+        JComboBox<String> comboNumber = new JComboBox<String>(numbers);
+        mainPanel.setBackground(Color.pink);
+        //jBasicTable.setBackground(Color.pink);
         jBasicTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
-                        {"Tested computer", "NULL"},
+                        {"Anca's computer        NVIDIA GeForce 920M", "Test not run yet"},
+                        {"Daniela's computer  Intel(R) UHD Graphics 620", "Test not run yet"},
+                        {"Sarah's computer      Intel(R) UHD Graphics 620", "Test not run yet"},
+                        {"Silviu's computer       NVIDIA GeForce GTX 1650Ti", "Test not run yet"},
+                        {"NVIDIA GeForce GTX 1650", "Test not run yet"},
+                        {"AMD Radeon RX 580 ", "Test not run yet"},
+                        {"Intel(R) HD Graphics 520", "Test not run yet"},
+                        {"NVIDIA GeForce GTX 1660Ti", "Test not run yet"},
+                        {"NVIDIA GeForce GTX 1050", "Test not run yet"},
+                        {"AMD Radeon R5 graphics", "Test not run yet"},
+                        {"AMD Radeon RX 570", "Test not run yet"},
+                        {"NVIDIA GeForce GTX 1060", "Test not run yet"},
+                        {"Intel(R) HD Graphics Family", "Test not run yet"},
+                        {"Tested computer", "Test not run yet"},
                 },
                 new String[]{"№",  "GRAPHIC TEST(ms)" }
         ));
         jBasicTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jBasicTable);
+
+
         add(mainPanel, new GridBagConstraints(0, 0, 2, 1, .07, .1,
                 GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
@@ -63,13 +97,23 @@ public class MainWindow extends javax.swing.JFrame {
                 GridBagConstraints.SOUTHEAST, GridBagConstraints.NONE,
                 new Insets(0, 0, 0, 0), 0, 0));
 
-        mainPanel.add(jScrollPane1, new GridBagConstraints(0, GridBagConstraints.RELATIVE, 4, 1, 1.0, .01,
+        mainPanel.add(comboColor);
+        mainPanel.add(comboShape);
+        mainPanel.add(comboNumber);
+
+        mainPanel.add(jScrollPane1, new GridBagConstraints(0, GridBagConstraints.RELATIVE, 4, 1, 1.0, 1.01,
                 GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
         startButton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                startButtonMouseClicked(evt);
+                //startButtonMouseClicked(evt);
+
+                selectedColor=(String)comboColor.getSelectedItem();
+                selectedIterations=(String)comboNumber.getSelectedItem();
+                selectedShape=(String)comboShape.getSelectedItem();
+                GraphicTestWindow startTest = new GraphicTestWindow(selectedColor,selectedShape,selectedIterations);
+
             }
         });
 
@@ -78,12 +122,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
 
-       //Starting test after clicking button
-      // param evt mouse click event
-     //see java.awt.event.MouseEvent
-    private void startButtonMouseClicked(final java.awt.event.MouseEvent evt) {
-        GraphicTestWindow startTest = new GraphicTestWindow();
-    }
+
 
 
 }
